@@ -66,8 +66,8 @@ module.exports = function(options) {
 						childReq.y = coords[1];
 						childReq.z = coords[2];
 						options.source.serve(server, childReq, function(err, childBuffer, childHeaders) {
-							if (err && (err.statusCode !== 404 && err.statusCode !== 403)) return callback(err);
-							if (err && (err.statusCode === 404 || err.statusCode === 403)) return callback(options.errorOnTileNotFound ? err : null);
+							//if (err && (err.statusCode !== 404 && err.statusCode !== 403)) return callback(err);
+							//if (err && (err.statusCode === 404 || err.statusCode === 403)) return callback(options.errorOnTileNotFound ? err : null);
 							if (!childBuffer) return callback();
 							Mapnik.Image.fromBytes(childBuffer, function(err, image) {
 								if (err) return callback(options.errorOnTileNotFound ? err : null); // ignore and treat as transparent
